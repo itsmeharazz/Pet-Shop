@@ -1,36 +1,37 @@
-import React from 'react'
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import React, { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import Home from "./Pages/Home";
+import Shop from "./Pages/Shop";
+import Contact from "./Pages/Contact";
+import About from "./Pages/About";
+import ProductDetail from "./Pages/ProductDetail";
+import BlogDetail from "./Pages/BlogDetail";
+import Cart from "./Pages/Cart";
+import PlaceOrder from "./Pages/PlaceOrder";
+import Navbar from "./components/navBar/Navbar";
+import SignInPopUp from "./components/navBar/signinPopUp/SigninPopUp";
+import AllBlog from "./Pages/AllBlog";
+import Footer from "./components/footer/Footer";
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [showLogin, setShowLogin] = useState(false);
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {showLogin ? <SignInPopUp setShowLogin={setShowLogin} /> : <></>}
+      <Navbar setShowLogin={setShowLogin} />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/shop' element={<Shop />} />
+        <Route path='/singleProduct/:id' element={<ProductDetail />} />
+        <Route path='/blog' element={<AllBlog />} />
+        <Route path='/singleBlog/:id' element={<BlogDetail />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/cart' element={<Cart />} />
+        <Route path='/order' element={<PlaceOrder />} />
+      </Routes>
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
