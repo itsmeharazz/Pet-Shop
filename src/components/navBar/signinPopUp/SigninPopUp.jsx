@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { FcGoogle } from "react-icons/fc";
 import { useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 
 const SignInPopUp = ({ setShowLogin }) => {
   const [currState, setCurrState] = useState("Login");
@@ -9,11 +10,33 @@ const SignInPopUp = ({ setShowLogin }) => {
   const login = useGoogleLogin({
     onSuccess: (codeResp) => {
       console.log(codeResp);
-      // GetUserProfile(codeResp);
+      GetUserProfile(codeResp);
     },
     onError: (error) => console.log(error),
   });
-    return (
+
+  const GetUserProfile = (tokenInfo) => {
+    axios
+      .get(
+        `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${tokenInfo?.access_token}`,
+        {
+          headers: {
+            Authorization: `Bearer ${tokenInfo?.access_token}`,
+            Accept: "Application/json",
+          },
+        }
+      )
+      .then((res) => {
+        console.log("User info:", res.data);
+        localStorage.setItem("user", JSON.stringify(res.data));
+        setShowLogin(false);})
+      .catch((error) => {
+        console.error("Error fetching user info", error);
+      });
+  };
+
+
+  return (
     <div className='login-popup'>
       <div className='login-popup-container'>
         <div className='login-popup-title'>
@@ -23,7 +46,9 @@ const SignInPopUp = ({ setShowLogin }) => {
             className='cursor-pointer text-2xl font-extrabold '
           />
         </div>
-        <button onClick={login} className='w-full bg-[#4b2e37] text-center p-2 text-white rounded-md  cursor-pointer flex items-center justify-center gap-3 font-bold'>
+        <button
+          onClick={login}
+          className='w-full bg-[#4b2e37] text-center p-2 text-white rounded-md  cursor-pointer flex items-center justify-center gap-3 font-bold'>
           <FcGoogle className='text-xl' />
           Login with Google
         </button>
