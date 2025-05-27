@@ -5,7 +5,7 @@ import { FiX } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
 import { BsBasket2 } from "react-icons/bs";
 
-const NavItem = ({ setShowLogin }) => {
+const NavItem = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const location = useLocation();
@@ -63,7 +63,7 @@ const NavItem = ({ setShowLogin }) => {
           </li>
         ))}
 
-        <div className='w-full flex justify-between items-center mt-10'>
+        {/* <div className='w-full flex justify-between items-center mt-10'>
           <div className='relative'>
             <Link
               to={"/cart"}
@@ -83,7 +83,7 @@ const NavItem = ({ setShowLogin }) => {
             }}
             className='text-4xl md:text-3xl cursor-pointer text-[#efe9e9e4]'
           />
-        </div>
+        </div> */}
       </ul>
     </>
   );

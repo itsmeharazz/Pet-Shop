@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { CgProfile } from "react-icons/cg";
 import { BsBasket2 } from "react-icons/bs";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FaSearch } from "react-icons/fa";
 const NavIcon = ({ setShowLogin }) => {
 const [user, setUser]= useState(null);
-const navigate = useNavigate;
+// const navigate = useNavigate;
 useEffect(()=>{
   const storedUser = JSON.parse(localStorage.getItem("user"));
   setUser(storedUser);
@@ -30,13 +30,13 @@ useEffect(()=>{
             </span>
           </Link>
         </div>
+        
         <div className=''>
           {user ? (
             <Link to={""}>
-              {/* <CgProfile className='text-4xl md:text-3xl cursor-pointer text-[#efe9e9e4]' /> */}
               <img
-                src={user.picture}
-                alt={user.family_name}
+                src= {user.picture}
+                alt={user.given_name}
                 className='w-[55px] h-[55px] rounded-full '
               />
             </Link>
