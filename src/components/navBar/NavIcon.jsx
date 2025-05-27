@@ -1,15 +1,26 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 import { CgProfile } from "react-icons/cg";
 import { BsBasket2 } from "react-icons/bs";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { googleLogout } from "@react-oauth/google";
+
 const NavIcon = ({ setShowLogin }) => {
-const [user, setUser]= useState(null);
-// const navigate = useNavigate;
-useEffect(()=>{
-  const storedUser = JSON.parse(localStorage.getItem("user"));
-  setUser(storedUser);
-},[]);
+  const [user, setUser] = useState(null);
+  // const navigate = useNavigate();
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    setUser(storedUser);
+    // window.location.reload();
+  }, []);
 
   return (
     <>
@@ -30,16 +41,43 @@ useEffect(()=>{
             </span>
           </Link>
         </div>
-        
+
         <div className=''>
           {user ? (
-            <Link to={""}>
-              <img
-                src= {user.picture}
-                alt={user.given_name}
-                className='w-[55px] h-[55px] rounded-full '
-              />
-            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                {" "}
+                <img
+                  src={user.picture}
+                  alt={user.given_name}
+                  className='w-[55px] h-[55px] rounded-full '
+                />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className={"bg-white"}>
+                <DropdownMenuLabel className={"text-xl font-semibold"}>
+                  User Info
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <p className='text-xl'>Mr. {user.name}</p>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link to={""}>
+                    <p className='text-xl'>Dashboard</p>
+                  </Link>
+                </DropdownMenuItem>
+                <button
+                  onClick={() => {
+                    googleLogout();
+                    localStorage.clear();
+                    // navigate("/");
+                    window.location.reload();
+                  }}
+                  className='w-full h-[40px] bg-[#4b2e37] text-center  text-white rounded-md  cursor-pointer font-bold'>
+                  Logout
+                </button>
+              </DropdownMenuContent>
+            </DropdownMenu>
           ) : (
             <CgProfile
               onClick={() => setShowLogin(true)}
@@ -57,4 +95,4 @@ useEffect(()=>{
   );
 };
 
-export default NavIcon
+export default NavIcon;

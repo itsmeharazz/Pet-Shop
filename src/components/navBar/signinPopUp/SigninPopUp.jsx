@@ -11,6 +11,7 @@ const SignInPopUp = ({ setShowLogin }) => {
     onSuccess: (codeResp) => {
       console.log(codeResp);
       GetUserProfile(codeResp);
+      
     },
     onError: (error) => console.log(error),
   });
@@ -29,7 +30,8 @@ const SignInPopUp = ({ setShowLogin }) => {
       .then((res) => {
         console.log("User info:", res.data);
         localStorage.setItem("user", JSON.stringify(res.data));
-        setShowLogin(false);})
+        setShowLogin(false);
+        window.location.reload();})
       .catch((error) => {
         console.error("Error fetching user info", error);
       });
