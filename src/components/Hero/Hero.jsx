@@ -24,7 +24,7 @@ const Hero = () => {
             />
           </div>
           <div className='w-full h-full md:w-[90%] md:mx-auto mt-0 md:mt-20 lg:mt-0 relative '>
-            <img src={cover} alt='' className='round w-full h-full ' />
+            <img src={cover} alt='' className='round w-[90%] h-[90%] ' />
             <div className='hidden w-[150px] h-[150px] absolute top-[15%] left-[-3%] rounded-full text-3xl text-center bg-[#ffe040] md:grid place-items-center'>
               Best Product
             </div>
