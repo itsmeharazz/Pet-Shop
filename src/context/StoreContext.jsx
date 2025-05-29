@@ -27,6 +27,8 @@ const URL = 'http://localhost:3000/products';
         ...prev,
         [itemId]: (prev[itemId] || 0) + 1,
       }));
+     
+    
     };
     const removeFromCart = (itemId) => {
       setCartItems((prev) => {

@@ -7,6 +7,16 @@ import { FaRegStar } from "react-icons/fa";
 import ProductReviews from "@/components/productReview/ProductReviews";
 import { FormInputIcon } from "lucide-react";
 import { FaPlus, FaWindowMinimize } from "react-icons/fa6";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogClose
+} from "@/components/ui/dialog";
+
 const ProductDetail = () => {
   const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
   const { id } = useParams();
@@ -14,6 +24,7 @@ const ProductDetail = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const [openDialog, setOpenDialog] = useState(false);
   //  const [reviews, setReviews ] = useState(null);
   //  const [activeReviews, setActiveReviews ] = useState(null);
   useEffect(() => {
@@ -33,6 +44,9 @@ const ProductDetail = () => {
     };
     fetchData();
   }, []);
+
+  
+
   // const handleReviewChange = (review) => {
   //   if (review === setReviews) {
   //     setReviews(null);
@@ -93,9 +107,16 @@ const ProductDetail = () => {
                 //   <p>Add to Cart</p>
                 // </div>
                 <Button
-                  onClick={() => addToCart(id)}
+                  onClick={() => {
+                    const user = localStorage.getItem("user");
+                    if (!user) {
+                      setOpenDialog(true);
+                      return;
+                    }
+                    addToCart(id);
+                  }}
                   text='Add to cart'
-                  className='border-2 border-[#ffe040] bg-[#4b2f37] text-[#ffe040]  hover:bg-[#fff] hover:text-[#4b2f37]'
+                  className='border-2 border-[#ffe040] bg-[#4b2f37] text-[#ffe040] hover:bg-[#fff] hover:text-[#4b2f37]'
                 />
               ) : (
                 <>
@@ -118,6 +139,15 @@ const ProductDetail = () => {
                 </>
               )}
             </div>
+            <Dialog open={openDialog} onOpenChange={setOpenDialog}>
+              <DialogContent className={"bg-red-200"}>
+                <DialogHeader>
+                  <DialogDescription className={'text-2xl font-bold'}>
+                    Please login to add items to your cart.
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
         <p className='text-2xl font-bold mb-5'>Description</p>
