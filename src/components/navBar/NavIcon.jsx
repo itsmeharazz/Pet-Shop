@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import { CgProfile } from "react-icons/cg";
 import { BsBasket2 } from "react-icons/bs";
 import { Link } from "react-router-dom";
@@ -12,9 +12,16 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { googleLogout } from "@react-oauth/google";
+import { StoreContext } from "@/context/StoreContext";
 
 const NavIcon = ({ setShowLogin }) => {
   const [user, setUser] = useState(null);
+  const { cartItems } = useContext(StoreContext);
+  const itemCount = Object.keys(cartItems).length;
+  // const cartCount = Object.values(cartItems).reduce(
+  //   (acc, curr) => acc + curr,
+  //   0
+  // );
   // const navigate = useNavigate();
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -37,7 +44,7 @@ const NavIcon = ({ setShowLogin }) => {
           <Link to={"/cart"}>
             <BsBasket2 className='text-4xl md:text-3xl cursor-pointer text-[#efe9e9e4]' />
             <span className='absolute w-7 text-center top-[-55%] right-[1%] bg-[#ffe040] rounded-full text-[#4b2f37]'>
-              0{/* {Product.lath} */}
+              {itemCount}
             </span>
           </Link>
         </div>
