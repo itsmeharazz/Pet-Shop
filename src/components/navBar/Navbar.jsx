@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useContext } from "react";
 import NavItem from "./NavItem";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.svg";
@@ -16,8 +16,18 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { googleLogout } from "@react-oauth/google";
+import { StoreContext } from "@/context/StoreContext";
+
+
 const Navbar = ({ setShowLogin }) => {
   const [user, setUser] = useState(null);
+  const { cartItems } = useContext(StoreContext);
+  const itemCount = Object.keys(cartItems).length;
+  // count all items in the cart
+  // const cartCount = Object.values(cartItems).reduce(
+  //   (acc, curr) => acc + curr,
+  //   0
+  // );
   const navigate = useNavigate();
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -42,9 +52,14 @@ const Navbar = ({ setShowLogin }) => {
           <Link to={"/"}>
             <MdHome className='text-white border rounded-full p-3 text-5xl hover:bg-[#ffe404] hover:text-[#4b2f37]' />
           </Link>
-          <Link to={"/cart"}>
-            <IoMdCart className='text-white border rounded-full p-3 text-5xl hover:bg-[#ffe404] hover:text-[#4b2f37]' />
-          </Link>
+          <div className='relative'>
+                   <Link to={"/cart"}>
+                     <IoMdCart className='text-4xl md:text-3xl cursor-pointer text-[#efe9e9e4]' />
+                     <span className='absolute w-7 text-center top-[-55%] right-[1%] bg-[#ffe040] rounded-full text-[#4b2f37]'>
+                       {itemCount}
+                     </span>
+                   </Link>
+                 </div>
           <div className=''>
             {user ? (
               <DropdownMenu>

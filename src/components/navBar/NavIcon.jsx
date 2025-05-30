@@ -18,11 +18,11 @@ const NavIcon = ({ setShowLogin }) => {
   const [user, setUser] = useState(null);
   const { cartItems } = useContext(StoreContext);
   const itemCount = Object.keys(cartItems).length;
+  // count all items in the cart
   // const cartCount = Object.values(cartItems).reduce(
   //   (acc, curr) => acc + curr,
   //   0
   // );
-  // const navigate = useNavigate();
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     setUser(storedUser);
