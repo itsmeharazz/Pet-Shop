@@ -18,7 +18,7 @@ const ProductsCard = ({
     .slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
   return (
-    <div className='w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10'>
+    <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10'>
       {filteredProducts.map((product) => (
         <Link
           to={`/singleProduct/${product.id}`}

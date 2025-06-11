@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import AllCategory from "../components/allProducts/AllCategory";
 import ProductsCard from "../components/allProducts/ProductCard";
-import Pagination from "../components/allProducts/Pagenatiion";
+import Pagination from "../components/allProducts/Pagination";
 import Brands from "../components/allProducts/Brands";
 import ShowCategory from "../components/allProducts/MobileButton/ShowCategory";
 
 const Shop = () => {
+  const [totalProducts, setTotalProducts] = useState(0);
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 12;
@@ -18,16 +19,15 @@ const Shop = () => {
     async function fetchproducts() {
       let url = `http://localhost:3000/products?_page=${currentPage}&_limit=${pageSize}`;
 
-      if (selectedCategory) {
-        url += `category=${selectedCategory}`;
-      }
-      if (selectedBrand) {
-        url += `&brand=${selectedBrand}`;
-      }
+      if (selectedCategory) url += `&category=${selectedCategory}`;
+      if (selectedBrand) url += `&brand=${selectedBrand}`;
 
       const response = await fetch(url);
       const data = await response.json();
+      const total = response.headers.get("X-Total-Count");
+
       setProducts(data);
+      setTotalProducts(Number(total));
     }
     fetchproducts();
   }, [currentPage, pageSize, selectedCategory, selectedBrand]);
@@ -54,11 +54,11 @@ const Shop = () => {
         {/* Sid bar */}
         <div className=' w-[23%] hidden lg:block'>
           {/* Display Category */}
-          <div className='w-full h-[400px] shadow-md rounded-xl border border-[#d9d9d9]  mb-10 py-5 px-4'>
+          <div className='w-full h-[550px] shadow-md rounded-xl border border-[#d9d9d9] overflow-auto mb-10 py-5 px-4'>
             <h2 className='text-2xl font-extrabold text-[#383636] mb-2'>
               Category
             </h2>
-            <div className='overflow-auto h-[330px]'>
+            <div>
               <AllCategory
                 onSelectCategory={handleCategoryChange}
                 selectedCategory={selectedCategory}
@@ -67,9 +67,9 @@ const Shop = () => {
             </div>
           </div>
           {/* Display Brand */}
-          <div className='w-full h-[400px] shadow-md rounded-xl border border-[#d9d9d9]  mb-10 py-5 px-4'>
+          <div className='w-full h-[550px] shadow-md rounded-xl border border-[#d9d9d9] overflow-auto mb-10 py-5 px-4'>
             <h2 className='text-2xl font-bold text-[#383636] mb-2'>Brands</h2>
-            <div className='overflow-auto h-[330px]'>
+            <div>
               <Brands
                 onSelectBrand={handleBrandChange}
                 activeBrand={activeBrand}
@@ -78,10 +78,15 @@ const Shop = () => {
           </div>
         </div>
         <div className='mobileSidBar'>
-          <ShowCategory />
+          <ShowCategory
+            onSelectCategory={handleCategoryChange}
+            onSelectBrand={handleBrandChange}
+            activeCategory={activeCategory}
+            activeBrand={activeBrand}
+          />
         </div>
         {/* Display Products  */}
-        <div className='w-full'>
+        <div className='w-[75%]'>
           <ProductsCard
             products={products}
             currentPage={currentPage}
@@ -95,9 +100,9 @@ const Shop = () => {
       <div className='my-10 '>
         <Pagination
           onPageChange={handlePageChange}
-          products={products}
           currentPage={currentPage}
           pageSize={pageSize}
+          totalProducts={totalProducts}
         />
       </div>
     </div>

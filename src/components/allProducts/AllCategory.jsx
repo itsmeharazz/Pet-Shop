@@ -46,32 +46,30 @@ const AllCategory = ({ onSelectCategory, activeCategory }) => {
   }
 
   return (
-    <>
-      <div className='h-full flex flex-col text-2xl items-start font-sm mb-10'>
-        <button
-          onClick={() => onSelectCategory(null)}
-          className={`mb-2 p-2 ${
-            !activeCategory
-              ? "active-button text-orange-500 text-xl font-black"
-              : "text-gray-400"
-          }`}>
-          All
-        </button>
+    <div className='h-full flex flex-col text-2xl items-start font-sm mb-10'>
+      <button
+        onClick={() => onSelectCategory(null)}
+        className={`mb-2 p-2 ${
+          !activeCategory
+            ? "active-button text-orange-500 text-xl font-black"
+            : "text-gray-400"
+        }`}>
+        All
+      </button>
 
-        {categories.map((category) => (
-          <button
-            key={category}
-            onClick={() => onSelectCategory(category)}
-            className={`mb-2 p-2 text-left  w-full cursor-pointer ${
-              activeCategory === category
-                ? "active-button text-orange-500 text-xl font-black"
-                : "text-gray-400 hover:text-orange-400"
-            }`}>
-            {category || "Uncategorized"}
-          </button>
-        ))}
-      </div>
-    </>
+      {categories.map((category) => (
+        <button
+          key={category}
+          onClick={() => onSelectCategory(category)}
+          className={`mb-2 p-2 text-left  w-full cursor-pointer ${
+            activeCategory === category
+              ? "active-button text-orange-500 text-xl font-black"
+              : "text-gray-400 hover:text-orange-400"
+          }`}>
+          {category || "Uncategorized"}
+        </button>
+      ))}
+    </div>
   );
 };
 

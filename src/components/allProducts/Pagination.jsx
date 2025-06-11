@@ -1,7 +1,8 @@
 import React from "react";
 
 const Pagination = ({ onPageChange, currentPage, products, pageSize }) => {
-  const totalPages = Math.ceil(products.length / pageSize);
+  const totalPages = Math.ceil(products / pageSize);
+
   console.log(totalPages);
   const renderPaginationLinks = () => {
     return Array.from({ length: totalPages }, (_, i) => i + 1).map(
