@@ -278,3 +278,59 @@ margin-block:10px;
     @apply bg-background text-foreground;
   }
 }
+
+
+/* Admin Style*/
+:root {
+  --main-bg: #FAFBFB;
+  --main-dark-bg: #20232A;
+  --secondary-dark-bg: #33373E;
+  --light-gray: #F7F7F7;
+  --half-transparent: rgba(0, 0, 0, 0.5);
+  --color-default: rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  --main-bg: #181818;
+  --main-dark-bg: #121212;
+  --secondary-dark-bg: #1d1d1d;
+  --light-gray: #D1D5DB;
+  --half-transparent: rgba(255, 255, 255, 0.5);
+  --color-default: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  background-color: var(--main-bg);
+}
+
+.sidebar {
+  /* background-color: var(--main-dark-bg); */
+}
+
+/* button {
+  background-color: var(--main-dark-bg);
+  color: var(--light-gray);
+} */
+
+/* button:hover {
+  background-color: var(--secondary-dark-bg);
+} */
+.dark .sidebar {
+  background-color: var(--secondary-dark-bg);
+  color: var(--light-gray)
+}
+
+.dark .content-area {
+  background-color: var(--main-dark-bg);
+  color: var(--light-gray);
+}
+
+#preview{
+  background: transparent url('https://ej2.syncfusion.com/react/demos/src/color-picker/images/pen.png') no-repeat;
+  display: inline-block;
+  height: 80px;
+  margin: 10px 0;
+  min-width:300px;
+  max-width: 600px;
+  background-color: #008000;
+}
