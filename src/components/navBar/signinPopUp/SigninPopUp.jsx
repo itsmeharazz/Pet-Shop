@@ -48,12 +48,12 @@ const SignInPopUp = ({ setShowLogin }) => {
             className='cursor-pointer text-2xl font-extrabold '
           />
         </div>
-        <button
+        {/* <button
           onClick={login}
-          className='w-full bg-[#4b2e37] text-center p-2 text-white rounded-md  cursor-pointer flex items-center justify-center gap-3 font-bold'>
+          className='w-full bg-[#180e11] hover:bg-[#4b2e37] text-center p-2 text-white rounded-md  cursor-pointer flex items-center justify-center gap-3 font-bold'>
           <FcGoogle className='text-xl' />
           Login with Google
-        </button>
+        </button> */}
         <div className='login-popup-inputs'>
           {currState === "Login" ? (
             <></>
@@ -65,7 +65,12 @@ const SignInPopUp = ({ setShowLogin }) => {
           <button className='w-full bg-[#4b2e37] p-2 text-white rounded-md hover:bg-amber-300 cursor-pointer font-bold'>
             {currState === "Sign Up" ? "Create Account" : "Login"}
           </button>
-
+          <button
+            onClick={login}
+            className='w-full bg-[#180e11] hover:bg-[#4b2e37] text-center p-2 text-white rounded-md  cursor-pointer flex items-center justify-center gap-3 font-bold'>
+            <FcGoogle className='text-xl' />
+            Login with Google
+          </button>
           <div className='login-popup-condition'>
             <input type='checkbox' name='' id='' />
             <p>By continuing this,I agree with terms & conditions</p>
