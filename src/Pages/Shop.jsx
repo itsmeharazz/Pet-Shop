@@ -42,7 +42,7 @@ const Shop = () => {
   };
   const handleBrandChange = (brandName) => {
     setSelectedBrand(brandName);
-    setSelectedCategory(null); // clear category if you want
+    setSelectedCategory(null); 
     setCurrentPage(1);
     setActiveBrand(brandName);
     setActiveCategory(null);
