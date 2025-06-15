@@ -1,20 +1,7 @@
 import React from "react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+// import { enableRipple } from "@syncfusion/ej2-base";
+import { DropDownButtonComponent } from "@syncfusion/ej2-react-splitbuttons";
+
 
 
 import AllCategory from "../AllCategory";
@@ -24,29 +11,23 @@ const ShowCategory = () => {
   return (
     <>
       <div className='flex justify-between items-center'>
-        <div className='shadow-md p-2 mb-15 lg:hidden border rounded-xl'>
-          <Sheet>
-            <SheetTrigger>Category</SheetTrigger>
-            <SheetContent>
-              <SheetHeader>
-                <SheetDescription>
-                  <AllCategory />
-                </SheetDescription>
-              </SheetHeader>
-            </SheetContent>
-          </Sheet>
+        <div className='shadow-md p-2 mb-15 sm:hidden lg:hidden border rounded-xl'>
+          <DropDownButtonComponent
+            id='element'
+            items={<AllCategory />}
+            iconCss='e-icons e-menu'
+            content='Category'>
+            Category{" "}
+          </DropDownButtonComponent>
         </div>
-        <div className='shadow-md p-2 mb-15 lg:hidden border rounded-xl'>
-          <Sheet>
-            <SheetTrigger>Brand</SheetTrigger>
-            <SheetContent>
-              <SheetHeader>
-                <SheetDescription>
-                  <Brands />
-                </SheetDescription>
-              </SheetHeader>
-            </SheetContent>
-          </Sheet>
+        <div className='shadow-md p-2 mb-15 sm:hidden lg:hidden border rounded-xl'>
+          <DropDownButtonComponent
+            id='element'
+            items={<Brands />}
+            iconCss='e-icons e-menu'
+            content='Brands'>
+            Brands{" "}
+          </DropDownButtonComponent>
         </div>
       </div>
     </>

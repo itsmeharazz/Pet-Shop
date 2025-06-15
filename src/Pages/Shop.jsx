@@ -49,13 +49,13 @@ const Shop = () => {
     <div>
       <div className='container mt-25 px-12 flex justify-between items-start gap-10'>
         {/* Sid bar */}
-        <div className='sidevar w-[23%]'>
+        <div className='md:hidden lg:block w-[23%]'>
           {/* Display Category */}
           <div className='w-full h-[430px] shadow-md rounded-xl border border-[#d9d9d9] mb-10 py-5 px-4'>
             <h2 className='text-2xl font-extrabold text-[#383636] mb-2'>
               Category
             </h2>
-            <div className='overflow-y-auto h-[350px]'>
+            <div className='overflow-y-auto h-[350px] '>
               <AllCategory
                 onSelectCategory={handleCategoryChange}
                 selectedCategory={selectedCategory}
@@ -66,7 +66,7 @@ const Shop = () => {
           {/* Display Brand */}
           <div className='w-full h-[430px] shadow-md rounded-xl border border-[#d9d9d9] mb-10 py-5 px-4'>
             <h2 className='text-2xl font-bold text-[#383636] mb-2'>Brands</h2>
-            <div className='overflow-y-auto h-[350px]'>
+            <div className='overflow-y-auto h-[350px]  '>
               <Brands
                 onSelectBrand={handleBrandsChange}
                 activeBrand={activeBrand}
@@ -74,9 +74,9 @@ const Shop = () => {
             </div>
           </div>
         </div>
-
+       
         {/* Display Products  */}
-        <div className='w-[75%]'>
+        <div className='w-full'>
           <ProductsCard
             products={products}
             currentPage={currentPage}
