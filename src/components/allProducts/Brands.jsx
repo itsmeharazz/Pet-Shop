@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const BrandSelection = ({ onSelectBrand, activeBrand }) => {
+const Brands = ({ onSelectBrand, activeBrand }) => {
   const [brands, setBrands] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -12,13 +12,10 @@ const BrandSelection = ({ onSelectBrand, activeBrand }) => {
         return response.json();
       })
       .then((data) => {
-        console.log("Fetched products:", data); // Debug log
-        const allBrand = data.map((product) => product.brand);
-        console.log("All brands:", allBrand); // Debug log
-
-        const uniqueBrands = [...new Set(allBrand.filter(Boolean))];
+        const allBrands = data.map((product) => product.brand);
+        const uniqueBrands = [...new Set(allBrands.filter(Boolean))];
         setBrands(uniqueBrands);
-        setLoading(false); // Make sure loading is set to false
+        setLoading(false);
       })
       .catch((err) => {
         console.error("Fetch error:", err);
@@ -27,7 +24,11 @@ const BrandSelection = ({ onSelectBrand, activeBrand }) => {
       });
   }, []);
 
-  if (loading) return <div>Loading Brands...</div>;
+  if (loading) return (
+    <div>
+      <span class='loader'></span>
+    </div>
+  );
   if (error) return <div>{error}</div>;
   if (brands.length === 0) return <div>No brands found</div>;
 
@@ -35,7 +36,7 @@ const BrandSelection = ({ onSelectBrand, activeBrand }) => {
     <div className='h-full flex flex-col text-2xl items-start font-sm mb-10'>
       <button
         onClick={() => onSelectBrand(null)}
-        className={`mb-2 p-2 ${
+        className={`mb-2 p-2 cursor-pointer ${
           !activeBrand
             ? "active-button text-orange-500 text-xl font-black"
             : "text-gray-400"
@@ -59,4 +60,4 @@ const BrandSelection = ({ onSelectBrand, activeBrand }) => {
   );
 };
 
-export default BrandSelection;
+export default Brands;
