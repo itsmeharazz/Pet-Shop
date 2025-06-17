@@ -29,8 +29,8 @@ const BlogDetail = () => {
 
   if (loading) {
     return (
-      <p className='text-center mt-12 text-2xl text-blue-500 font-medium'>
-        Loading...
+      <p className='text-center my-30 text-2xl text-blue-500 font-medium'>
+        <span class='loader'></span>
       </p>
     );
   }

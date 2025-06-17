@@ -59,7 +59,11 @@ const ProductDetail = () => {
   // };
   const details = products.find((item) => item.id.toString() === id);
   if (loading) {
-    return <p className='text-center mt-12 text-3xl'>Loading...</p>;
+    return (
+      <p className='text-center my-30 text-3xl'>
+        <span class='loader '></span>
+      </p>
+    );
   }
 
   if (!details) {

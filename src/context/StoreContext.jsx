@@ -5,7 +5,7 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({});
-const URL = 'http://localhost:3000/products';
+const URL = "https://petshopapi-5jfx.onrender.com/products";
   const [products, setProducts] = useState([]);
  useEffect(() => {
      const fetchData = async () => {
