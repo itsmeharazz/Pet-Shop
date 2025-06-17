@@ -10,7 +10,7 @@ import { Autoplay } from "swiper/modules";
 const ChooseBest = () => {
   const navigate = useNavigate();
   const [allProduct, setAllProduct] = useState([]);
-  const URL = "http://localhost:3000/products";
+  const URL = "https://petshopapi-5jfx.onrender.com/products";
   useEffect(() => {
     const fetchData = async () => {
       try {

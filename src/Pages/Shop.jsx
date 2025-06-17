@@ -3,6 +3,7 @@ import ProductsCard from "../components/allProducts/ProductCard";
 import Pagination from "../components/allProducts/Pagination";
 import AllCategory from "@/components/allProducts/AllCategory";
 import Brands from "../components/allProducts/Brands";
+import ShowCategory from "@/components/allProducts/MobileButton/ShowCategory";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -49,7 +50,7 @@ const Shop = () => {
     <div>
       <div className='container mt-25 px-12 flex justify-between items-start gap-10'>
         {/* Sid bar */}
-        <div className='md:hidden lg:block w-[23%]'>
+        <div className='hidden lg:block w-[23%]'>
           {/* Display Category */}
           <div className='w-full h-[430px] shadow-md rounded-xl border border-[#d9d9d9] mb-10 py-5 px-4'>
             <h2 className='text-2xl font-extrabold text-[#383636] mb-2'>
@@ -74,7 +75,11 @@ const Shop = () => {
             </div>
           </div>
         </div>
-       
+       {/* Mobile Brands */}
+        <ShowCategory />
+
+
+
         {/* Display Products  */}
         <div className='w-full'>
           <ProductsCard

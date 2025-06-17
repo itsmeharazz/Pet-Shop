@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const AllBlog = () => {
   const [blog, setBlog] = useState([]);
-  const URL = "http://localhost:3000/blog";
+  const URL = "https://petshopapi-5jfx.onrender.com/blog";
 
   useEffect(() => {
     const fetchBlog = async () => {

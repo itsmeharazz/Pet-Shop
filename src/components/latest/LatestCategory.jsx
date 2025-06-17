@@ -8,7 +8,9 @@ const CategorySelection = ({ onSelectCategory, activeCategory }) => {
   useEffect(() => {
     async function fetchCategories() {
       try {
-        const response = await fetch("http://localhost:3000/latest");
+        const response = await fetch(
+          "https://petshopapi-5jfx.onrender.com/latest"
+        );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

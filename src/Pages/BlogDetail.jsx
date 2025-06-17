@@ -7,7 +7,7 @@ const BlogDetail = () => {
   const [loading, setLoading] = useState(true);
   const { id } = useParams(); // Getting the dynamic id from URL
 
-  const URL = "http://localhost:3000/blog";
+  const URL = "https://petshopapi-5jfx.onrender.com/blog";
 
   useEffect(() => {
     const fetchBlogs = async () => {

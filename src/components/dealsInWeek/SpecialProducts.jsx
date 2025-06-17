@@ -3,7 +3,8 @@ import Timer from "../timer/Timer";
 import { Link } from "react-router-dom";
 const SpecialProducts = () => {
   const [bestDeals, setBestDeals] = useState([]);
-  const URL = "http://localhost:3000/specialProducts";
+  
+  const URL = "https://petshopapi-5jfx.onrender.com/specialProducts";
   useEffect(() => {
     const fetchData = async () => {
       try {

@@ -5,7 +5,7 @@ import { TbDiscount } from "react-icons/tb";
 import { TbRosetteDiscountCheckFilled } from "react-icons/tb";
 const Policy = () => {
   const [policy, setPolicy] = useState([]);
-  const URL = "http://localhost:3000/policy";
+  const URL = "https://petshopapi-5jfx.onrender.com/policy";
   useEffect(() => {
     const fetchData = async () => {
       try {

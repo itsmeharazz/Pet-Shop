@@ -12,7 +12,7 @@ const LatestProducts = () => {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        let url = "http://localhost:3000/latest";
+        let url = "https://petshopapi-5jfx.onrender.com/latest";
         if (selectedCategory) {
           url += `?category=${encodeURIComponent(selectedCategory)}`;
         }

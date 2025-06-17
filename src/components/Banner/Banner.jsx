@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const Banner = () => {
   const [foodBanner, setFoodBanner] = useState([]);
-  const URL = "http://localhost:3000/foodBanner";
+  const URL = "https://petshopapi-5jfx.onrender.com/foodBanner";
 
   useEffect(() => {
     const fetchData = async () => {

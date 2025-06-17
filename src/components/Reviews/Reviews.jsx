@@ -5,7 +5,7 @@ import "swiper/css";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
-  const URL = "http://localhost:3000/Reviews";
+  const URL = "https://petshopapi-5jfx.onrender.com/Reviews";
 
   useEffect(() => {
     const fetchData = async () => {

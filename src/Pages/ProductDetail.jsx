@@ -20,7 +20,7 @@ import {
 const ProductDetail = () => {
   const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
   const { id } = useParams();
-  const URL = "http://localhost:3000/products";
+  const URL = "https://petshopapi-5jfx.onrender.com/products";
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -180,6 +180,7 @@ const ProductDetail = () => {
           <ProductReviews details={details} />
         </div>
       </div>
+      
     </div>
   );
 };
