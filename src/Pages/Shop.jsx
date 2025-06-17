@@ -16,7 +16,7 @@ const Shop = () => {
   useEffect(() => {
     async function fetchproducts() {
       let url =
-        "http://localhost:3000/products?page=${currentPage}&limit=${pageSize}";
+        "https://petshopapi-5jfx.onrender.com/products?page=${currentPage}&limit=${pageSize}";
       if (selectedCategory) {
         url += `&category=${selectedCategory}`;
       }

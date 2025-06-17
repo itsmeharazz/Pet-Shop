@@ -6,7 +6,7 @@ const AllCategory = ({ onSelectCategory, activeCategory }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/products")
+    fetch("https://petshopapi-5jfx.onrender.com/products")
       .then((response) => {
         if (!response.ok) throw new Error("HTTP error");
         return response.json();
