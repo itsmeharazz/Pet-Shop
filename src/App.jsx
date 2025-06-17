@@ -38,8 +38,8 @@ import {
   Stacked,
 } from "./Pages/admin/index";
 import { Sidebar, ThemeSettings } from "./components/admin";
-import NavBar from "../src/components/admin/NavBar";
 import { useStateContext } from "./context/admin/ContextProvider";
+import NavBar from "./components/admin/Navbar";
 
 // Register Syncfusion license
 registerLicense(
@@ -108,7 +108,7 @@ function App() {
                   activeMenu ? "md:ml-72" : "flex-2"
                 }`}>
                 <div className='fixed md:static bg-white w-full text-black p-2 shadow'>
-                  <NavBar />
+                <NavBar />
                 </div>
 
                 <Routes>
