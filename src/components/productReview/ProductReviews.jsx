@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Person from "../../assets/avatar.jpg";
+import Person from "../../../public/assets/avatar.jpg";
 import { MdOutlineStar } from "react-icons/md";
 import Button from "@/components/Button";
 import { Bold, Italic, Underline } from "lucide-react";

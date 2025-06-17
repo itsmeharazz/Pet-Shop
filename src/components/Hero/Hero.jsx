@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../Button";
-import cover from "../../assets/cover banner.png";
+import cover from "../../../public/assets/cover banner.png";
 import { useNavigate } from "react-router-dom";
 const Hero = () => {
   const navigate = useNavigate();

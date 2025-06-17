@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { StoreContext } from "@/context/StoreContext";
 import { useParams, useNavigate } from "react-router-dom";
 import Button from "@/components/Button";
-import Person from "../assets/avatar.jpg";
+import Person from "../../public/assets/avatar.jpg";
 import { FaRegStar } from "react-icons/fa";
 import ProductReviews from "@/components/productReview/ProductReviews";
 import { FormInputIcon } from "lucide-react";
