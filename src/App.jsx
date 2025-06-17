@@ -36,7 +36,7 @@ import {
   Pie,
   Pyramid,
   Stacked,
-} from "./pages/admin/index";
+} from "./Pages/admin/index";
 import { Sidebar, ThemeSettings } from "./components/admin";
 import NavBar from "./components/admin/NavBar";
 import { useStateContext } from "./context/admin/ContextProvider";
