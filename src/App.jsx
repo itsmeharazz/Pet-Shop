@@ -38,7 +38,7 @@ import {
   Stacked,
 } from "./Pages/admin/index";
 import { Sidebar, ThemeSettings } from "./components/admin";
-import NavBar from "./components/admin/Navbar";
+import NavBar from "./components/admin/NavBar";
 import { useStateContext } from "./context/admin/ContextProvider";
 
 // Register Syncfusion license
