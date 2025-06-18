@@ -1,7 +1,6 @@
 # 🐾 Pet Shop E-commerce Website & Admin Dashboard
 
-> ![User site screebShot](https://i.postimg.cc/mDZPb8SG/screencapture-localhost-5173-2025-06-14-23-45-492.png)
-
+>![User site screebShot](https://i.postimg.cc/XYF3tddc/Screenshot-2025-06-19-020446.png)
 ---
 
 > ![Admin Dashbord screebShot](https://i.postimg.cc/mrQD3Qh5/screencapture-localhost-5173-admin-2025-06-14-23-45-26.png)
