@@ -48,7 +48,16 @@ const Shop = () => {
 
   return (
     <div>
-      <div className='container mt-25 px-12 flex justify-between items-start gap-10'>
+      <div className='container my-15'>
+        {/* Mobile Brands */}
+        <ShowCategory
+          onSelectCategory={setSelectedCategory}
+          activeCategory={selectedCategory}
+          onSelectBrand={setSelectedBrand}
+          activeBrand={selectedBrand}
+        />
+      </div>
+      <div className='container  px-12 flex justify-between items-start gap-10'>
         {/* Sid bar */}
         <div className='hidden lg:block w-[23%]'>
           {/* Display Category */}
@@ -75,10 +84,6 @@ const Shop = () => {
             </div>
           </div>
         </div>
-       {/* Mobile Brands */}
-        <ShowCategory />
-
-
 
         {/* Display Products  */}
         <div className='w-full'>
