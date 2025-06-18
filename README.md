@@ -1,9 +1,10 @@
 # 🐾 Pet Shop E-commerce Website & Admin Dashboard
 
->![User site screebShot](https://i.postimg.cc/XYF3tddc/Screenshot-2025-06-19-020446.png)
----
->![Admin Dashbord screebShot](https://i.postimg.cc/mrQD3Qh5/screencapture-localhost-5173-admin-2025-06-14-23-45-26.png)
+> ![User site screebShot](https://i.postimg.cc/mDZPb8SG/screencapture-localhost-5173-2025-06-14-23-45-492.png)
 
+---
+
+> ![Admin Dashbord screebShot](https://i.postimg.cc/mrQD3Qh5/screencapture-localhost-5173-admin-2025-06-14-23-45-26.png)
 
 A complete **Pet Food E-commerce platform** built with **React** and **Tailwind CSS** featuring a user-friendly storefront and a powerful admin dashboard. It includes product listings, Google login, data visualization, and dynamic routing.
 
@@ -48,14 +49,14 @@ A complete **Pet Food E-commerce platform** built with **React** and **Tailwind 
 
 ## ⚙️ Technologies Used
 
-| Area              | Tech Stack                                                                 |
-|-------------------|----------------------------------------------------------------------------|
-| Frontend (UI)     | React, Tailwind CSS, Shadcn/UI, React Icons                                |
-| Routing           | React Router DOM                                                           |
-| Charts/Analytics  | Syncfusion React Components                                                |
-| Authentication    | Google OAuth 2.0                                                           |
-| Backend API       | Mock API using JSON Server hosted on [Render.com](https://render.com)     |
-| State Management  | React Context API (for cart, auth, and order management)                   |
+| Area             | Tech Stack                                                            |
+| ---------------- | --------------------------------------------------------------------- |
+| Frontend (UI)    | React, Tailwind CSS, Shadcn/UI, React Icons                           |
+| Routing          | React Router DOM                                                      |
+| Charts/Analytics | Syncfusion React Components                                           |
+| Authentication   | Google OAuth 2.0                                                      |
+| Backend API      | Mock API using JSON Server hosted on [Render.com](https://render.com) |
+| State Management | React Context API (for cart, auth, and order management)              |
 
 ---
 
@@ -72,7 +73,8 @@ petfood-ecommerce/
 │ ├── pages/
 │ └── App.js
 ├── server/ (Optional) # Local development data
-│ 
+│
+
 ---
 
 ## 🚀 Getting Started Locally
@@ -114,5 +116,3 @@ OAuth login integrated via @react-oauth/google.
 Client ID and scopes configured via Google Cloud Console.
 
 Tokens are stored in state for secure access and user sessions.
-
-
